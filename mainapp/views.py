@@ -2,9 +2,7 @@ from django.conf import settings
 from django.shortcuts import render
 from django.utils import timezone
 
-from .models import Product, ProductCategory
-
-# Create your views here.
+from .models import Contact, Product, ProductCategory
 
 
 def main(request):
@@ -33,20 +31,6 @@ def products(request, pk=None):
 def contact(request):
     title = "О нас"
     visit_date = timezone.now()
-    locations = [
-        {"city": "Москва", "phone": "+7-888-888-8888", "email": "info@geekshop.ru", "address": "В пределах МКАД"},
-        {
-            "city": "Екатеринбург",
-            "phone": "+7-777-777-7777",
-            "email": "info_yekaterinburg@geekshop.ru",
-            "address": "Близко к центру",
-        },
-        {
-            "city": "Владивосток",
-            "phone": "+7-777-777-7779",
-            "email": "info_vladivostok@geekshop.ru",
-            "address": "Близко к центру",
-        },
-    ]
+    locations = Contact.objects.all()
     content = {"title": title, "visit_date": visit_date, "locations": locations}
     return render(request, "mainapp/contact.html", content)
