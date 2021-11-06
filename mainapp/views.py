@@ -5,8 +5,10 @@ from django.utils import timezone
 from .models import Contact, Product, ProductCategory
 
 
+
 def main(request):
     title = "главная"
+
     products = Product.objects.all()
 
     content = {"title": title, "products": products, "media_url": settings.MEDIA_URL}
