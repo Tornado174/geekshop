@@ -23,7 +23,6 @@ class Product(models.Model):
         return f"{self.name} ({self.category.name})"
 
 
-
 class Contact(models.Model):
     phone = models.CharField(max_length=50, verbose_name="номер телефона")
     email = models.EmailField(max_length=254, verbose_name="электронная почта")
@@ -32,4 +31,3 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.pk} {self.email}"
-
