@@ -91,7 +91,9 @@ class ProductCategoryCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy("admin:categories")
     fields = "__all__"
 
+
 from django.db.models import F
+
 
 class ProductCategoryUpdateView(LoginRequiredMixin, UpdateView):
     model = ProductCategory
